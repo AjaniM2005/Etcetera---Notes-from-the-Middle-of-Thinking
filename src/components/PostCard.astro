@@ -1,0 +1,18 @@
+---
+// PostCard.astro
+// Props: title, date, excerpt, slug, tags (array of strings)
+const { title, date, excerpt, slug, tags } = Astro.props;
+---
+
+<article class="post-card" data-tags={tags.join(',')}>
+  <h2>
+    <a href={`/posts/${slug}/`}>{title}</a>
+  </h2>
+  <p style="color: #555; font-size: 0.9rem;">{new Date(date).toLocaleDateString()}</p>
+  <p>{excerpt}</p>
+  <div>
+    {tags.map((tag) => (
+      <span class="tag-pill">{tag}</span>
+    ))}
+  </div>
+</article>

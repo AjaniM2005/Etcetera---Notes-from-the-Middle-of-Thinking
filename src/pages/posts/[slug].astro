@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+
+// Define the types for the Markdown frontmatter
+interface Frontmatter {
+  title: string;
+  date: string;
+  excerpt?: string; // excerpt can be optional for post pages
+  tags: string[];
+}
+
+// Define the type for the Markdown imported module structure
+// This is crucial for correctly typing what's passed from getStaticPaths
+interface PostModule {
+  frontmatter: Frontmatter;
+  Content: any; // The component for rendering the markdown content
+}
+
+// getStaticPaths function is required for dynamic routes in static builds
+export async function getStaticPaths() {
+  // Use import.meta.glob to get all markdown files in the posts directory
+  // The 'eager: true' option loads the files immediately
+  const postImports = import.meta.glob<PostModule>('../../content/posts/*.md', { eager: true });
+
+  // Map each imported post module to a path object
+  return Object.entries(postImports).map(([filePath, postModule]) => {
+    // Extract the slug from the file path
+    const slug = filePath.split('/').pop()?.replace('.md', '') ?? '';
+    return {
+      params: { slug }, // The dynamic part for the URL
+      props: { postData: postModule }, // Pass the entire post module as a prop named 'postData'
+    };
+  });
+}
+
+// Destructure the slug from Astro.params
+const { slug } = Astro.params;
+
+// Destructure the postData from Astro.props
+// Ensure that postData is typed correctly
+const { postData } = Astro.props as { postData: PostModule };
+
+// Now safely destructure frontmatter and Content from postData
+const { frontmatter, Content } = postData;
+
+// frontmatter should contain at least: title, date, tags
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.excerpt}>
+  <article>
+    <h1>{frontmatter.title}</h1>
+    <p style="color: #555; font-size: 0.9rem;">
+      {new Date(frontmatter.date).toLocaleDateString()}
+    </p>
+    <div>
+      {frontmatter.tags.map((tag) => (
+        <span class="tag-pill">{tag}</span>
+      ))}
+    </div>
+
+    <hr style="margin: 2rem 0;" />
+
+    {/* Render the Markdown body */}
+    <Content />
+
+    {/* Back to home link */}
+    <p style="margin-top: 3rem;">
+      <a href="/">← Back to all posts</a>
+    </p>
+
+    <hr style="margin: 3rem 0 1rem;" />
+    
+    <h2>Comments</h2>
+    <div id="comments">
+      </div>
+    <script 
+    src="https://giscus.app/client.js"
+        data-repo="AjaniM2005/Etcetera---Notes-from-the-Middle-of-Thinking"
+        data-repo-id="R_kgDOOz6JUw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOz6JU84CrFcw"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async
+        >
+    </script>
+  </article>
+</BaseLayout>

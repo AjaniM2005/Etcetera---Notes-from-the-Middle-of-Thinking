@@ -1,0 +1,52 @@
+---
+import { onMount } from 'solid-js'; // Astro supports Solid Island for interactivity
+
+// Props: allTags (array of strings)
+const { allTags } = Astro.props;
+---
+
+<style>
+  /* A little extra spacing */
+  .tag-filter input[type="checkbox"] {
+    margin-right: 0.25rem;
+  }
+</style>
+
+<div class="tag-filter" id="tag-filter">
+  <strong>Filter by tag:</strong>
+  {allTags.map((tag) => (
+    <label>
+      <input type="checkbox" value={tag} />
+      {tag}
+    </label>
+  ))}
+</div>
+
+<script type="module" is:inline>
+  // Client-side filtering logic:
+  // 1. Collect all checkboxes in #tag-filter
+  // 2. When any checkbox changes, get checked tags, then hide/show .post-card elements
+  const filterContainer = document.getElementById('tag-filter');
+  const checkboxes = Array.from(filterContainer.querySelectorAll('input[type="checkbox"]'));
+  const posts = Array.from(document.querySelectorAll('.post-card'));
+
+  function applyFilter() {
+    const checkedTags = checkboxes.filter((cb) => cb.checked).map((cb) => cb.value);
+    if (checkedTags.length === 0) {
+      // No filter: show everything
+      posts.forEach((postEl) => (postEl.style.display = 'block'));
+      return;
+    }
+    posts.forEach((postEl) => {
+      const postTags = postEl.getAttribute('data-tags').split(',');
+      // Show if postTags includes *every* checked tag (AND logic). 
+      // If you want OR logic, use: checkedTags.some(ct => postTags.includes(ct))
+      const hasAll = checkedTags.every((ct) => postTags.includes(ct));
+      postEl.style.display = hasAll ? 'block' : 'none';
+    });
+  }
+
+  checkboxes.forEach((cb) => {
+    cb.addEventListener('change', applyFilter);
+  });
+</script>

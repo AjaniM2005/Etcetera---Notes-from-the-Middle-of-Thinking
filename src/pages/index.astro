@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import TagFilter from '../components/TagFilter.astro';
+
+type Frontmatter = {
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+};
+
+type PostModule = {
+  frontmatter: Frontmatter;
+};
+
+const allPostModules = import.meta.glob<PostModule>('../content/posts/*.md', { eager: true });
+
+const posts = Object.entries(allPostModules)
+  .map(([filePath, postModule]) => {
+    const { frontmatter } = postModule as PostModule;
+    const slug = filePath.split('/').pop()?.replace('.md', '') ?? '';
+    return {
+      slug,
+      ...frontmatter
+    };
+  })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+let allTagsSet = new Set<string>();
+posts.forEach((post) => {
+  if (Array.isArray(post.tags)) {
+    post.tags.forEach((t) => allTagsSet.add(t));
+  }
+});
+const allTags = [...allTagsSet];
+---
+<BaseLayout title="Home" description="Etcetera: Notes from the Middle of Thinking">
+  <section style="margin-bottom: 2rem;">
+    <p>
+      Welcome to Etcetera: Notes from the Middle of Thinking. This blog is a personal space for exploring ideas, reflections, and insights across various topics, from quantum physics to theology and everything in between. Here you'll find thoughts and notes as they evolve.
+    </p>
+  </section>
+
+  <TagFilter allTags={allTags} />
+
+  {posts.length === 0 ? (
+    <p>No posts found.</p>
+  ) : (
+    posts.map((post) => (
+      <PostCard
+        key={post.slug}
+        title={post.title}
+        date={post.date}
+        excerpt={post.excerpt}
+        slug={post.slug}
+        tags={post.tags}
+      />
+    ))
+  )}
+</BaseLayout>

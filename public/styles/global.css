@@ -1,0 +1,122 @@
+/* global.css */
+
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root variables – tweak as you like */
+:root {
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Georgia', serif;
+  --color-bg: #fafafa;
+  --color-text: #222;
+  --color-accent: #005f73;
+  --max-content-width: 960px; /* Increased max width for better use of space */
+}
+
+/* Basic body styling */
+html {
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-serif);
+  /* Removed display: flex and justify-content: center as .container handles centering */
+  padding: 1rem; /* Keep body padding for overall page spacing */
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width); /* Re-introduce max-width for readability */
+  margin: 0 auto; /* This centers the container on the page */
+}
+
+/* Basic styling for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* PostCard styling */
+.post-card {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.post-card:last-child {
+  border-bottom: none;
+}
+
+/* Tag pill style */
+.tag-pill {
+  display: inline-block;
+  background: #e0f2f1;
+  color: #006064;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+/* TagFilter styles */
+.tag-filter {
+  margin-bottom: 2rem;
+}
+.tag-filter label {
+  margin-right: 1rem;
+}
+
+/* --- NEW / EDITED STYLES BELOW --- */
+
+/* Style for paragraphs to add more line breaks (vertical space) */
+main p {
+  margin-bottom: 1.5em; /* Adjust this value for more or less space between paragraphs */
+}
+
+/* Style for article to ensure full width within container */
+article {
+  max-width: 100%; /* Ensures article takes full width of its parent (.container) */
+  box-sizing: border-box;
+}
+
+/* Style for horizontal rules (HR) to extend full width */
+hr {
+  width: 100%; /* Explicitly set HR to 100% width of its parent */
+  border: 0; /* Remove default browser border */
+  border-top: 1px solid #ddd; /* Add your desired border style back */
+  /* Margin will be handled by inline styles in your .astro files for specific placement */
+}
+
+/* Dark mode (optional) */
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181818;
+    --color-text: #eee;
+    --color-accent: #3ddc97;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  .tag-pill {
+    background: #004d40;
+    color: #b2dfdb;
+  }
+}
+*/

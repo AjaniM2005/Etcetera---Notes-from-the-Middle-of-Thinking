@@ -1,5 +1,5 @@
 ---
-title: "Mathematics-ing in public: A New Focus for Etcetra"
+title: "Mathematics-ing in public: A New Focus for Etcetera"
 date: "2026-06-17"
 slug: "mathematics-ing-in-public"
 tags:
@@ -8,7 +8,7 @@ tags:
 excerpt: >
      The focus of Etcetera is officially shifting. Moving away from pure philosophy, this space is transforming into an open notebook for fellow math hobbyists and thinkers as we seek to expand our mathematical horizons ("mathematics-ing in public" as I like to call it).
 ---
-Last year, almost to the date, I secretly launched this blog with the goal of creating a space for what I called “in–progress thinking”. The idea was that the blog would be a place not necessarily for proving answers to the most pressing questions in science and philosophy but for asking questions, developing, and evaluating ideas, encouraging reflection. In other words, our thinking wasn't meant to be conclusive, it was meant to be in-progress. However, the guiding philosophy was set during a time where I held a keen interest in philosophy/philosophy of science, hence why topics, for example, revolved around probing the limits of intelligent design or rethinking hallucinations in large language models and the likes. Now, while I won't say I've been magically cured of the philosophy bug (can you ever be?) I have developed an unexpected but deeper passion in something else this year: Mathematics. 
+Last year, almost to the date, I secretly launched this blog with the goal of creating a space for what I called “in–progress thinking”. The idea was that the blog would be a place not necessarily for proving answers to the most pressing questions in science and philosophy but for asking questions, developing, and evaluating ideas, encouraging reflection. In other words, our thinking wasn't meant to be conclusive, it was meant to be in-progress. However, the guiding philosophy was set during a time when I held a keen interest in philosophy/philosophy of science, hence why topics, for example, revolved around probing the limits of intelligent design or rethinking hallucinations in large language models and the likes. Now, while I won't say I've been magically cured of the philosophy bug (can you ever be?) I have developed an unexpected but deeper passion in something else this year: Mathematics. 
 
 I'm not going to nerd out and spend the remainder of this post explaining why Mathematics is the greatest pursuit of all time (even though it is), but I will say that I've grown deeply fond of the field, and am constantly looking for new ways to learn and explore in the area (beyond standard routes).
 One thing that I've taken to doing recently is that instead of grinding through more (often repetitive) problem sets, I've actually taken to doing puzzle mathematics. I'm working through the book "The Moscow Puzzles," which, as you may know, possesses over 350 mathematical puzzles. The idea behind this is to:

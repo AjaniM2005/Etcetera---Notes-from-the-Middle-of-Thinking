@@ -175,6 +175,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
+"00-mathematics-ing-in-public.md": {
+	id: "00-mathematics-ing-in-public.md";
+  slug: "mathematics-ing-in-public";
+  body: string;
+  collection: "posts";
+  data: any
+} & { render(): Render[".md"] };
 "first-post.md": {
 	id: "first-post.md";
   slug: "first-post";

@@ -12,6 +12,14 @@ const { title, description = '' } = Astro.props;
     <title>{title} | Etcetera</title>
     {description && <meta name="description" content={description} />}
     <link rel="stylesheet" href="/styles/global.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Etcetera",
+      "url": "https://etcetera-notesfromthemiddleofthinking.netlify.app/"
+    }
+  </script>
   </head>
   <body>
     <div class="container">

@@ -1,5 +1,5 @@
 ---
-title: "Problem Log 1: A beset batallion, a broad river and boys with a boat (Moscow Puzzles #10)"
+title: "Problem Log 1: A beset battalion, a broad river and boys with a boat (Moscow Puzzles #10)"
 date: "2026-06-19"
 tags:
   - Math puzzles

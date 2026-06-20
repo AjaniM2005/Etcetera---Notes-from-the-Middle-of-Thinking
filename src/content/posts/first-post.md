@@ -9,6 +9,7 @@ tags:
   - Theology 
   - Politics
   - Society and Culture
+  - Announcement
 excerpt: >
      Where everyone else has answers, this blog has questions, because I'm tired of people who 'know' everything.
 ---

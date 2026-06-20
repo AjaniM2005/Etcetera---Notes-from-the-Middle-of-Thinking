@@ -3,8 +3,8 @@ title: "Mathematics-ing in public: A New Focus for Etcetera"
 date: "2026-06-17"
 slug: "mathematics-ing-in-public"
 tags:
-  - Math
-  - Updates
+  - Math puzzles
+  - Announcement
 excerpt: >
      The focus of Etcetera is officially shifting. Moving away from pure philosophy, this space is transforming into an open notebook for fellow math hobbyists and thinkers as we seek to expand our mathematical horizons ("mathematics-ing in public" as I like to call it).
 ---

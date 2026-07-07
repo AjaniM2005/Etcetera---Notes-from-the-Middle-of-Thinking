@@ -1,7 +1,7 @@
 ---
 // PostCard.astro
-// Props: title, date, slug, tags (array of strings), and Content component
-const { title, date, slug, tags, content: Content } = Astro.props;
+// Props: title, date, excerpt, slug, tags (array of strings)
+const { title, date, excerpt, slug, tags } = Astro.props;
 ---
 
 <article class="post-card" data-tags={tags.join(',')}>
@@ -9,12 +9,8 @@ const { title, date, slug, tags, content: Content } = Astro.props;
     <a href={`/posts/${slug}/`}>{title}</a>
   </h2>
   <p style="color: #555; font-size: 0.9rem;">{new Date(date).toLocaleDateString()}</p>
-  
-  <div class="excerpt-preview">
-    <Content />
-  </div>
-
-  <div style="margin-top: 1rem;">
+  <p set:html={excerpt} class="excerpt-text" />
+  <div>
     {tags.map((tag) => (
       <span class="tag-pill">{tag}</span>
     ))}
@@ -22,17 +18,8 @@ const { title, date, slug, tags, content: Content } = Astro.props;
 </article>
 
 <style>
-  /* 🪄 This handles line-clamping so it cuts off nicely after 3 lines */
-  .excerpt-preview {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;  
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  /* Style your links inside the excerpt preview box */
-  .excerpt-preview :global(a) {
+  /* Optional styling to make your links look beautiful inside the text */
+  .excerpt-text :global(a) {
     color: #3b82f6;
     text-decoration: underline;
   }

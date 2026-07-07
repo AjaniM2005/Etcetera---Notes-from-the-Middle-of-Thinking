@@ -15,4 +15,5 @@ But there's an important caveat we are, or at least I was, glossing over. Do you
 
 I didn't apply the given condition to the secondary set of 6 blanks (the ones that came from the blank shavings). The statement said that the shavings from 6 blanks produces one more blank, and those 36 original blanks just produced, as we calculated, 6 more blanks. This implies that, from the shavings of these 6 blanks, we can get one more blank, and therefore one more item. Thus, the total number of items we can get from those 36 blanks is actually 43. (🤯)
 
+## Reflection
 I think this puzzle was a great example in showing us (or, again, at least me) how our own mental traps can cloud reasoning. Unlike other puzzles we'll come across, the key insight/idea wasn't hidden behind some clever wordplay or hidden assumptions. They stipulated exactly how we were supposed to make our calculations. My error came entirely from a cognitive regression bug, I simply stopped reapplying the recursive loop too early. Going forward, it's a good reminder to be fiercely attentive to the outlined conditions, ensuring that a quick rush to a clean answer doesn't cause an oversight error.

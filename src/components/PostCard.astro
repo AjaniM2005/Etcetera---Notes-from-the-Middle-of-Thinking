@@ -9,7 +9,7 @@ const { title, date, excerpt, slug, tags } = Astro.props;
     <a href={`/posts/${slug}/`}>{title}</a>
   </h2>
   <p style="color: #555; font-size: 0.9rem;">{new Date(date).toLocaleDateString()}</p>
-  <p>{excerpt}</p>
+  <p set:html={excerpt} />
   <div>
     {tags.map((tag) => (
       <span class="tag-pill">{tag}</span>

@@ -120,3 +120,14 @@ hr {
   }
 }
 */
+/* --- GLOBAL IMAGE RESIZING --- */
+
+/* Targets any image that lives inside your main content or articles */
+article img, main img {
+  display: block;
+  max-width: 450px;    /* 👈 Change this number to whatever size you prefer (e.g., 400px, 500px) */
+  width: 100%;         /* Ensures responsiveness on smaller mobile screens */
+  height: auto;        /* Maintains the original aspect ratio so images don't distort */
+  margin: 2rem auto;   /* Centers the images horizontally with healthy spacing above/below */
+  border-radius: 6px;  /* Optional: adds a subtle, clean rounded corner to the images */
+}
